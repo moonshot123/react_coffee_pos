@@ -1,21 +1,17 @@
-import React,{Component} from 'react'
+import React from 'react'
+import SellList from './SellList';
+import SellOutput from './SellOutput';
 
-class SellTemplate extends Component {
+export default SellTemplate = ({name,price, code, date, time}) => {
 
-    render(){
         return(
             <div>
-
                 매출정보템플릿컴포넌트
-
+                {SalesDB}
+                
+                <SellList />
+                <SellOutput />
             </div>
         )
-    }
-
 
 }
-
-
-
-
-export default SellTemplate
