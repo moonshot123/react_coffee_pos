@@ -5,27 +5,26 @@ import {BrowserRouter  as Router, Route, Link } from 'react-router-dom';
 import FoodTemplate from "./components/menu/FoodTemplate"
 import DrinkTemplate from "./components/menu/DrinkTemplate"
 import SellTemplate from './components/sell/SellTemplate';
+import Output from './components/menu/output/Output';
 
 export default class App extends Component {
-  state = { username: null ,
-    total:0
-    ,
+  state = { 
+    username: null ,
+    total:0,
   
-    DrinkDB = [
+    DrinkDB : [
       {name : 아메리카노, price: 4100, code: am },
       {name : 그린티라떼, price: 5600, code: green},
       {name : 카푸치노, price: 5100, code: ca}
     ],
   
-    FoodDB = [
+    FoodDB : [
       {name : 샌드위치, price : 5500, code: sn},
       {name : 티라미수, price : 6000, code: tr},
-      {name : 베이글, price : 3500, code: bg},
-  
+      {name : 베이글, price : 3500, code: bg}
     ],
   
-    SalesDB = [
-  
+    SalesDB : [
       {name : 아메리카노, price: 4100, code:am, date:20181116, time:160000 },
       {name : 그린티라떼, price: 5600, code: green, date:20181116, time:160000 },
       {name : 아메리카노, price: 4100, code:am, date:20181116, time:160000 },
@@ -34,27 +33,30 @@ export default class App extends Component {
       {name : 아메리카노, price: 4100, code:am, date:20181116, time:160000 },
       {name : 베이글, price : 3500, code: bg, date:20181116, time:160000 },
       {name : 아메리카노, price: 4100, code:am, date:20181116, time:160000 }
-    
-  ]
+    ]
 
   };
+
 
   _drinkhandler(){
     console.log("음료 핸들러 이동")
     const DrinkDB = this.state.DrinkDB.map( drink => {
       return(
-        <DrinkTemplate
+        <DrinkTemplate drinkList={(
+          <DrinkList
           name = {drink.name}
           price = {drink.price}
           code = {drink.code}
           key = {drink.code}
+          />
+        )}   
         />
-
         )
     })
     return DrinkDB    
   }
 
+/*
   _foodhandler(){
     console.log("식품핸들러")
     const FoodDB = this.state.FoodDB.map( food => {
@@ -66,32 +68,35 @@ export default class App extends Component {
           key = {food.code}
         />
       )
+      
     })
 
     return FoodDB
   }
 
+  //매출핸들러
   _saleshandler (){
     console.log("매출 핸들러 이동")
-
-    const SalesDB = this.state.SalesDB.map( sell =>{
+    const SalesDB = this.state.SalesDB.map( sales => {
       return(
         <SellTemplate 
-        name = {sell.name}
-        price = {sell.price}
-        code = {sell.code}
-        date = {sell.date}
-        time = {sell.time}
-        key = {sell.code}
+        name = {sales.name}
+        price = {sales.price}
+        code = {sales.code} 
+        date = {sales.date} 
+        time = {sales.time}
         />
       )
-    })
-    return SalesDB 
+      
+    }) 
+  
+    return SalesDB  
   }
 
+  _totalhandler() {
 
-
-
+  }
+*/
 
   componentDidMount() {
     fetch('/api/getUsername')
@@ -100,7 +105,14 @@ export default class App extends Component {
   }
 
   render() {
-    const { username } = this.state;
+    console.log("시작")
+    const { username } = this.state.username;
+    const { total } = this.state.total;
+    const { DrinkDB } =this.state.DrinkDB
+    const { FoodDB } =this.state.FoodDB
+    const { SalesDB } =this.state.SalesDB
+
+
     return (
       <div>
             {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}

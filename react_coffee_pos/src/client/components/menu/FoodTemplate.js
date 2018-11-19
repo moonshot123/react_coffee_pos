@@ -3,14 +3,16 @@ import FoodList from './input/FoodList';
 import Output from './output/Output'
 
 
-const FoodTemplate = () => {
+const FoodTemplate = ({}) => {
+    
     return(
         <div>
             식품 관련템플릿 
             <div>
 
             </div>
-            <div><Output/>
+            <div>
+                <Output/>
             </div>
 
         </div>

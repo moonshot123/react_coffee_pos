@@ -1,5 +1,6 @@
 //매출정보컴포넌트
 import PropTypes from 'prop-types';
+import React from 'react'
 
 
 //name, price: 4100, code:am, date:20181116, time:160000

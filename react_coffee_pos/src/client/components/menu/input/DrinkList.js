@@ -1,15 +1,20 @@
 //버튼 리스트 컴포넌트
-import React from 'react'
+import React,{Component} from 'react'
+import Drink from './Drink'
 
-const MenuList = () =>{
-    return(
-        <div>
-        버튼리스트
-
-        </div>
-
-    )
+class DrinkList extends Component () {
+    return(){
+        const drinkList = this.props;
+        
+        
+        return(
+            <div>
+                <Drink name = {drinkList.name}/>
+            </div>
+        )
+    }
+            
 }
 
 
-export default MenuList
+export default DrinkList

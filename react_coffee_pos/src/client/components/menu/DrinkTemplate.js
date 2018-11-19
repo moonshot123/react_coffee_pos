@@ -1,19 +1,20 @@
-import React,{Component} from 'react'
+import React from 'react'
 import DrinkList from './input/DrinkList';
 import Output from './output/Output';
 
 
 
 
-class MenuTemplate extends Component{
+const DrinkTemplate = (drinkList) =>{
     //입력부분 템플릿
-    render(){
+    console.log(drinkList);
+
         return(
             <div>
             -음료관련 템플릿-
                
                 <div className="list_tep">
-                    <DrinkList/>
+                    <DrinkList drinkList={drinkList} />
                 </div>
 
             
@@ -22,10 +23,7 @@ class MenuTemplate extends Component{
                 </div>
 
             </div>
-        )
-
-    }
-     
+        )     
 }
 
-export default MenuTemplate
+export default DrinkTemplate
