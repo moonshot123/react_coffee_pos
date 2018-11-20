@@ -3,10 +3,10 @@ import React from 'react'
 
 
 //버튼 컴포넌트
-const Drink = (name) => {
+const Drink = ({name,type,code,price}) => {
     return (
         <div>
-            <button value={name} > </button>
+            <button value={code} > {name}{type}{price} </button>
         </div>        
     )
 

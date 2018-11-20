@@ -3,7 +3,7 @@ import FoodList from './input/FoodList';
 import Output from './output/Output'
 
 
-const FoodTemplate = ({}) => {
+const FoodTemplate = () => {
     
     return(
         <div>

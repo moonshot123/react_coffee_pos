@@ -4,12 +4,12 @@ import Food from './Food'
 
 class FoodList extends Component () {
     return(){
-        const FoodList = this.props;
+        //const FoodList = this.props;
         
         
         return(
             <div>
-                <Food name = {FoodList.name}/>
+                <Food />
             </div>
         )
     }

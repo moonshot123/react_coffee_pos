@@ -3,13 +3,24 @@ import React,{Component} from 'react'
 import Drink from './Drink'
 
 class DrinkList extends Component () {
-    return(){
-        const drinkList = this.props;
+    render(){
+        //const drinkList = this.props;
+        console.log("drinklist")
         
+        const drink = this.props.map( ({name,type,code,price}) => {
+            <Drink 
+            name={name}
+            type={type}
+            code={code}
+            price={price}
+            index = {code}
+            />
+        } )
+
         
         return(
             <div>
-                <Drink name = {drinkList.name}/>
+                {drink}
             </div>
         )
     }
